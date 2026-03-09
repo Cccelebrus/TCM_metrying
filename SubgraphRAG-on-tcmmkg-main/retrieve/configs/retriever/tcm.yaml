@@ -1,0 +1,27 @@
+# configs/retriever/tcm.yaml
+task: 'retriever'
+
+env:
+  seed: 42
+  num_threads: 4
+
+dataset:
+  name: 'tcm'
+  text_encoder_name: 'text2vec-large-chinese'
+
+retriever:
+  topic_pe: true
+  DDE_kwargs:
+    num_rounds: 2
+    num_reverse_rounds: 2
+
+optimizer:
+  lr: 5e-4
+
+eval:
+  k_list: '15'
+
+train:
+  num_epochs: 20
+  patience: 5
+  save_prefix: tcm_retriever
